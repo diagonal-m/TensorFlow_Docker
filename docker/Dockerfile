@@ -9,7 +9,7 @@ ENV TZ Asia/Tokyo
 COPY . /tmp
 WORKDIR /tmp
 
-ENV PYTHON_VERSION 3.7
+ENV PYTHON_VERSION 3.7.9
 ENV HOME /root
 ENV PYTHON_ROOT $HOME/local/python-$PYTHON_VERSION
 ENV PATH $PYTHON_ROOT/bin:$PATH
@@ -24,6 +24,6 @@ RUN apt-get -y install git make build-essential libssl-dev zlib1g-dev libbz2-dev
     git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT && \
     $PYENV_ROOT/plugins/python-build/install.sh && \
     /usr/local/bin/python-build -v $PYTHON_VERSION $PYTHON_ROOT && \
-    rm -rf $PYENV_ROOT && \
+    rm -rf $PYENV_ROOT
 
 RUN pip3 install --upgrade pip && pip3 install -r docker/requirements.txt
