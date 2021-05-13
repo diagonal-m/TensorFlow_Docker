@@ -9,7 +9,7 @@ ENV TZ Asia/Tokyo
 COPY . /tmp
 WORKDIR /tmp
 
-ENV PYTHON_VERSION 3.8.2
+ENV PYTHON_VERSION 3.7
 ENV HOME /root
 ENV PYTHON_ROOT $HOME/local/python-$PYTHON_VERSION
 ENV PATH $PYTHON_ROOT/bin:$PATH
@@ -25,6 +25,5 @@ RUN apt-get -y install git make build-essential libssl-dev zlib1g-dev libbz2-dev
     $PYENV_ROOT/plugins/python-build/install.sh && \
     /usr/local/bin/python-build -v $PYTHON_VERSION $PYTHON_ROOT && \
     rm -rf $PYENV_ROOT && \
-    pip install --upgrade pip && \
-    pip install jupyter click numpy matplotlib seaborn pandas scikit-learn && \
-    pip install tensorflow-gpu keras
+
+RUN pip3 install --upgrade pip && pip3 install -r docker/requirements.txt

@@ -1,0 +1,12 @@
+click
+requests
+beautifulsoup4==4.9.3
+numpy
+pandas
+jupyter
+matplotlib
+seaborn
+Pillow
+opencv-python
+scikit-learn
+tensorflow-gpu==2.1.0
